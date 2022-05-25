@@ -4,26 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import ru.evgen.service.FullNameComposer;
 import ru.evgen.service.SomeService;
 
 
 @SpringBootApplication
-public class App implements CommandLineRunner {
-    @Autowired
-    private FullNameComposer fullNameComposer;
-    @Autowired
-    private SomeService service;
-
+@EnableAspectJAutoProxy
+public class App {
 
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-        fullNameComposer.composeFullName("Evgeniy", "Gorbachev");
-        service.someMethod();
     }
 
 }
